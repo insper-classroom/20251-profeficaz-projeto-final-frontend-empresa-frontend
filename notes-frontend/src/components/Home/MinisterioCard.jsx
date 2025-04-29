@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 function MinisterioCard({ ministerio }) {
   const navigate = useNavigate();
 
-  const { nome, SIAFE, id } = ministerio;
+  const { nome, SIAFE, } = ministerio;
 
   return (
     <div className="ministerio-card">
       <h3>{nome}</h3>
       <p>{SIAFE}</p>
-      <button onClick={() => navigate(`/overview/${id}`)}>Ver detalhes</button>
+      <button onClick={() => navigate(`/overview/${SIAFE}`)}>Ver detalhes</button>
     </div>
   );
 }

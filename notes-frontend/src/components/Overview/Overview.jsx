@@ -15,16 +15,16 @@ function calcularPercentuais({ empenhado, liquidado, pago }) {
 }
 
 export default function Overview() {
-  const { id } = useParams();
+  const { SIAFE } = useParams();
   const navigate = useNavigate();
   const [orgaos, setOrgaos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchOrgaos() {
+    async function fetchOrgaos(SIAFE) {
       try {
-        const response = await axios.get(`http:///${SIAFE}/2024`);
-        setOrgaos(response.data);
+        const response = await axios.get(`http://localhost:5000/tabelas_de_dados/${SIAFE}/2024`);
+        setOrgaos(response.data.data);
       } catch (error) {
         console.error('Erro ao buscar órgãos:', error);
       } finally {
@@ -32,8 +32,8 @@ export default function Overview() {
       }
     }
 
-    fetchOrgaos();
-  }, [id]);
+    fetchOrgaos(SIAFE);
+  }, [SIAFE]);
 
   if (loading) return <p>Carregando...</p>;
 
