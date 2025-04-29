@@ -5,12 +5,11 @@ import Ministerio from "./components/Ministerio";
 import "./App.css";
 
 function App() {
-
   return (
-    <>
-      <AppBar />
-      <Ministerio />
-    </>
+      <div>
+          <App />
+          <Ministerio />
+      </div>
   );
 }
 
