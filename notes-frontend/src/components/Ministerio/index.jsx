@@ -2,16 +2,18 @@ import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import "./index.css";
 
-export async function loader({ params }) {
+export async function loader() {
     try {
-        const dados = await axios
-            .get("link para informacoes")       
-            .then((response) => response.data);
+        const response = await axios.get("http://localhost:5000/tabelas_de_dados");
+        const dados = response.data?.data || []; // Corrigido aqui
+        console.log(dados);
         return { dados };
     } catch (error) {
-        return { dados: [] };                  
+        console.error("Error fetching data:", error);
+        return { dados: [] };
     }
 }
+
 
 export default function Ministerio() {
     const { dados } = useLoaderData();      
@@ -19,14 +21,17 @@ export default function Ministerio() {
 
     return (
         <div className="ministerio">
-            {dados.map((item) => (
+            {Array.isArray(dados) && dados.length > 0 ? dados.map((item) => (
                 <button
-                    key={item.id}             
-                    onClick={() => navigate(`/ministerio/${item.id}`)} 
-                >
-                    {item.nome}              
-                </button>
-            ))}
+                    key={item?.id || Math.random()}
+                    onClick={() => {
+                    console.log("Navegando para:", `/tabelas_de_dados/${item.SIAFE}/2024`);
+                    navigate(`/tabelas_de_dados/${item.SIAFE}/2024`);
+                    }}
+                    >
+                    {item?.nome || "Unnamed Item"}
+                    </button>
+            )) : <p>No data available</p>}
         </div>
     );
 }
