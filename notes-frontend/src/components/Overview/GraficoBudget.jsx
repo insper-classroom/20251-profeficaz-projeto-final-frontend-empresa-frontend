@@ -4,10 +4,11 @@ import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 
 function BudgetChart(props) {
   const processarDados = (empenhado, liquidado, pago) => {
-    const restante = empenhado - (liquidado + pago);
+    const restante = empenhado - (liquidado);
+    const falta_liquidar = liquidado - pago;
     
     return [
-      { name: 'Liquidado', value: liquidado },
+      { name: 'Liquidado', value: falta_liquidar },
       { name: 'Pago', value: pago },
       { name: 'Restante', value: restante },
     ];

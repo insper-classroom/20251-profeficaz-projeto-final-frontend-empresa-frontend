@@ -6,9 +6,10 @@ import './OverviewCss.css';
 import axios from 'axios';
 
 function calcularPercentuais({ empenhado, liquidado, pago }) {
-  const restante = empenhado - (liquidado + pago);
+  const restante = empenhado - (liquidado);
+  
   return [
-    { label: 'Liquidado', value: liquidado, cor: '#0088FE', percentual: ((liquidado / empenhado) * 100).toFixed(1) },
+    { label: 'Liquidado', value: liquidado, cor: '#0088FE', percentual: ((liquidado/ empenhado) * 100).toFixed(1) },
     { label: 'Pago', value: pago, cor: '#00C49F', percentual: ((pago / empenhado) * 100).toFixed(1) },
     { label: 'Restante', value: restante, cor: '#FFBB28', percentual: ((restante / empenhado) * 100).toFixed(1) },
   ];
@@ -40,12 +41,12 @@ export default function Overview() {
   // Primeiro orgão da lista é o superior
   const orgaoPrincipal = orgaos[0];
   const subOrgaos = orgaos.slice(1);
-  const dadosGrafico = calcularPercentuais(orgaoPrincipal);
+  const dadosGrafico = orgaoPrincipal ? calcularPercentuais(orgaoPrincipal) : [];
 
   return (
     <div className="overview-container">
       <button onClick={() => navigate('/')}>Voltar</button>
-      <h1 className="overview-title">{orgaoPrincipal.nome}</h1>
+      <h1 className="overview-title">{orgaoPrincipal.orgao}</h1>
 
       <GraficoBudget
         empenhado={orgaoPrincipal.empenhado}

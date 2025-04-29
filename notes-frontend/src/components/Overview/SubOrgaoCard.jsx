@@ -5,9 +5,10 @@ import './SubOrgaoCardCss.css';
 const cores = ['#0088FE', '#00C49F', '#FFBB28'];
 
 function SubOrgaoCard({ nome, empenhado, liquidado, pago }) {
-  const restante = empenhado - (liquidado + pago);
+  const restante = empenhado - (liquidado);
+  const falta_liquidar = liquidado - pago;
   const data = [
-    { name: 'Liquidado', value: liquidado },
+    { name: 'Liquidado', value: falta_liquidar },
     { name: 'Pago', value: pago },
     { name: 'Restante', value: restante },
   ];
