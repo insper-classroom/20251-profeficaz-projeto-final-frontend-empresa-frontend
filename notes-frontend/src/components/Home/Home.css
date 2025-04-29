@@ -1,0 +1,19 @@
+.home-container {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home-container h1 {
+  color: white;
+}
+
+.ministerios-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* ADD THIS LINE */
+  flex-wrap: wrap;
+  gap: 20px;
+}

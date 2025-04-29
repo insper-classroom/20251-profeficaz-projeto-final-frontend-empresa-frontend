@@ -1,14 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import GraficoBudget from './GraficoBudget';
-import './OverviewCss.css'; 
 import SubOrgaoCard from './SubOrgaoCard';
-
-const dadosMinisterio = {
-  nome: 'Ministério da Saúde',
-  empenhado: 1000000,
-  liquidado: 600000,
-  pago: 200000,
-};
+import './OverviewCss.css';
+import axios from 'axios';
 
 function calcularPercentuais({ empenhado, liquidado, pago }) {
   const restante = empenhado - (liquidado + pago);
@@ -20,23 +15,43 @@ function calcularPercentuais({ empenhado, liquidado, pago }) {
 }
 
 export default function Overview() {
-  const { nome, empenhado, liquidado, pago } = dadosMinisterio;
-  const dadosGrafico = calcularPercentuais({ empenhado, liquidado, pago });
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [orgaos, setOrgaos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    async function fetchOrgaos() {
+      try {
+        const response = await axios.get(`http:///${SIAFE}/2024`);
+        setOrgaos(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar órgãos:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-  const subOrgaos = [
-    { nome: 'Orgao A', empenhado: 400000, liquidado: 250000, pago: 100000 },
-    { nome: 'Orgao B', empenhado: 300000, liquidado: 200000, pago: 50000 },
-    { nome: 'Orgao C', empenhado: 300000, liquidado: 150000, pago: 50000 },
-  ];
-  
+    fetchOrgaos();
+  }, [id]);
+
+  if (loading) return <p>Carregando...</p>;
+
+  // Primeiro orgão da lista é o superior
+  const orgaoPrincipal = orgaos[0];
+  const subOrgaos = orgaos.slice(1);
+  const dadosGrafico = calcularPercentuais(orgaoPrincipal);
 
   return (
     <div className="overview-container">
-      <button>Voltar</button>
-      <h1 className="overview-title">{nome}</h1>
+      <button onClick={() => navigate('/')}>Voltar</button>
+      <h1 className="overview-title">{orgaoPrincipal.nome}</h1>
 
-      <GraficoBudget empenhado={empenhado} liquidado={liquidado} pago={pago} />
+      <GraficoBudget
+        empenhado={orgaoPrincipal.empenhado}
+        liquidado={orgaoPrincipal.liquidado}
+        pago={orgaoPrincipal.pago}
+      />
 
       <div className="legend-container">
         {dadosGrafico.map((item, index) => (
@@ -51,12 +66,13 @@ export default function Overview() {
       <div className="explanation-box">
         <h3>O que significam esses valores?</h3>
         <p>
-          <strong>empenhado</strong> é o total de dinheiro disponível para o ministério.<br />
-          <strong>Liquidado</strong> é o que já foi confirmado como gasto.<br />
-          <strong>Pago</strong> é o valor que já saiu do caixa e chegou nas mãos dos prestadores ou fornecedores.<br />
-          O restante representa o valor que ainda não foi utilizado.
+          <strong>Empenhado</strong>: Total reservado para o ministério.<br />
+          <strong>Liquidado</strong>: Valor efetivamente gasto.<br />
+          <strong>Pago</strong>: Valor já transferido para os fornecedores.<br />
+          O restante é o que ainda está disponível para liquidar.
         </p>
       </div>
+
       <h2 style={{ marginTop: '40px' }}>Órgãos subordinados</h2>
       <div>
         {subOrgaos.map((orgao, index) => (

@@ -1,12 +1,13 @@
-import React from 'react';
-import Overview from './components/Overview/Overview'; // ajuste o caminho se necessário
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home/Home';
+import Overview from './components/Overview/Overview';
 
 function App() {
-
   return (
-    <div>
-        <Overview />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/overview/:id" element={<Overview />} />
+    </Routes>
   );
 }
 

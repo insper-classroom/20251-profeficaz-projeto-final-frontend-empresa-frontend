@@ -1,5 +1,7 @@
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 
+
+
 function BudgetChart(props) {
   const processarDados = (empenhado, liquidado, pago) => {
     const restante = empenhado - (liquidado + pago);

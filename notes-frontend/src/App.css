@@ -8,3 +8,14 @@
   justify-content: center;
   place-content: space-evenly;
 }
+
+body, html, #root { /* Target the body, html, and root elements */
+  height: 100%; /* Make sure the content takes up the full height */
+  margin: 0; /* Remove default margins */
+}
+
+#root {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+}
