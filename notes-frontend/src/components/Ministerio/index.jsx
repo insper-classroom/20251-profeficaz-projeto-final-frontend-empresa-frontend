@@ -1,29 +1,32 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import "./index.css";
 
-export default function Ministerio(props) {
-    const [ministerio, setMinisterio] = useState("")
-
-    const criarMinisterios = (event) => {
-        event.preventDefault();
-
-        const data = {
-            "ministerio": ministerio
-        }
-
-        axios
-            .post("http://localhost:8000/api/notes/", data)
-            .then((response) => { 
-                
-            })
-            .catch((error) => console.log(error));
+export async function loader({ params }) {
+    try {
+        const dados = await axios
+            .get("link para informacoes")       
+            .then((response) => response.data);
+        return { dados };
+    } catch (error) {
+        return { dados: [] };                  
     }
+}
 
+export default function Ministerio() {
+    const { dados } = useLoaderData();      
+    const navigate = useNavigate();
 
     return (
         <div className="ministerio">
-            <button type="submit">Ministerio da Saude</button>
+            {dados.map((item) => (
+                <button
+                    key={item.id}             
+                    onClick={() => navigate(`/ministerio/${item.id}`)} 
+                >
+                    {item.nome}              
+                </button>
+            ))}
         </div>
     );
 }
