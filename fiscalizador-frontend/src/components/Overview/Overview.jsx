@@ -6,12 +6,23 @@ import './OverviewCss.css';
 import axios from 'axios';
 
 function calcularPercentuais({ empenhado, liquidado, pago }) {
-  const restante = empenhado - (liquidado);
+  const verba_diponivel = empenhado - (liquidado);
+  const falta_pagar = liquidado - pago
+  const total_calculado = verba_diponivel + falta_pagar + pago;
+
   
   return [
-    { label: 'Liquidado', value: liquidado, cor: '#0088FE', percentual: ((liquidado/ empenhado) * 100).toFixed(1) },
-    { label: 'Pago', value: pago, cor: '#00C49F', percentual: ((pago / empenhado) * 100).toFixed(1) },
-    { label: 'Restante', value: restante, cor: '#FFBB28', percentual: ((restante / empenhado) * 100).toFixed(1) },
+    { label: 'Verba Ainda Disponível', 
+      value: verba_diponivel, 
+      cor: '#FFBB28', 
+      percentual: ((verba_diponivel / total_calculado) * 100).toFixed(1) },
+    { label: 'Liquidado Porém Não Pago',
+       value: falta_pagar, cor: '#0088FE',
+      percentual: ((falta_pagar/ total_calculado) * 100).toFixed(1) },
+    { label: 'Pago', 
+      value: pago, 
+      cor: '#00C49F', 
+      percentual: ((pago / total_calculado) * 100).toFixed(1) },
   ];
 }
 
