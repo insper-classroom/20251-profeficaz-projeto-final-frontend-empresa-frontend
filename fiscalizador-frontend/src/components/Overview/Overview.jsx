@@ -24,7 +24,7 @@ export default function Overview() {
   useEffect(() => {
     async function fetchOrgaos(SIAFE) {
       try {
-        const response = await axios.get(`http://localhost:5000/tabelas_de_dados/${SIAFE}/2024`);
+        const response = await axios.get(`http://127.0.0.1:5000/tabelas_de_dados/${SIAFE}/2024`);
         setOrgaos(response.data.data);
       } catch (error) {
         console.error('Erro ao buscar órgãos:', error);

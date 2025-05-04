@@ -13,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     axios 
-    .get(`http://localhost:5000/tabelas_de_dados`)
+    .get(`http://127.0.0.1:5000/tabelas_de_dados`)
     .then((res) => setMinisterios(res.data.data));
     console.log(ministerios)
   }
