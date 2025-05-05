@@ -6,23 +6,29 @@ import './OverviewCss.css';
 import axios from 'axios';
 
 function calcularPercentuais({ empenhado, liquidado, pago }) {
-  const verba_diponivel = empenhado - (liquidado);
-  const falta_pagar = liquidado - pago
+  const verba_diponivel = empenhado - liquidado;
+  const falta_pagar = liquidado - pago;
   const total_calculado = verba_diponivel + falta_pagar + pago;
 
-  
   return [
-    { label: 'Verba Ainda Disponível', 
-      value: verba_diponivel, 
-      cor: '#FFBB28', 
-      percentual: ((verba_diponivel / total_calculado) * 100).toFixed(1) },
-    { label: 'Liquidado Porém Não Pago',
-       value: falta_pagar, cor: '#0088FE',
-      percentual: ((falta_pagar/ total_calculado) * 100).toFixed(1) },
-    { label: 'Pago', 
-      value: pago, 
-      cor: '#00C49F', 
-      percentual: ((pago / total_calculado) * 100).toFixed(1) },
+    {
+      label: 'Verba Ainda Disponível',
+      value: verba_diponivel,
+      cor: '#FFBB28',
+      percentual: ((verba_diponivel / total_calculado) * 100).toFixed(1),
+    },
+    {
+      label: 'Liquidado Porém Não Pago',
+      value: falta_pagar,
+      cor: '#0088FE',
+      percentual: ((falta_pagar / total_calculado) * 100).toFixed(1),
+    },
+    {
+      label: 'Pago',
+      value: pago,
+      cor: '#00C49F',
+      percentual: ((pago / total_calculado) * 100).toFixed(1),
+    },
   ];
 }
 
@@ -31,11 +37,12 @@ export default function Overview() {
   const navigate = useNavigate();
   const [orgaos, setOrgaos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [ano, setAno] = useState('2024'); // Estado para o ano selecionado
 
   useEffect(() => {
-    async function fetchOrgaos(SIAFE) {
+    async function fetchOrgaos(SIAFE, ano) {
       try {
-        const response = await axios.get(`http://127.0.0.1:5000/tabelas_de_dados/${SIAFE}/2024`);
+        const response = await axios.get(`http://127.0.0.1:5000/tabelas_de_dados/${SIAFE}/${ano}`);
         setOrgaos(response.data.data);
       } catch (error) {
         console.error('Erro ao buscar órgãos:', error);
@@ -44,12 +51,11 @@ export default function Overview() {
       }
     }
 
-    fetchOrgaos(SIAFE);
-  }, [SIAFE]);
+    fetchOrgaos(SIAFE, ano);
+  }, [SIAFE, ano]); // Adicione `ano` como dependência para recarregar os dados ao mudar o ano
 
   if (loading) return <p>Carregando...</p>;
 
-  // Primeiro orgão da lista é o superior
   const orgaoPrincipal = orgaos[0];
   const subOrgaos = orgaos.slice(1);
   const dadosGrafico = orgaoPrincipal ? calcularPercentuais(orgaoPrincipal) : [];
@@ -57,12 +63,29 @@ export default function Overview() {
   return (
     <div className="overview-container">
       <button onClick={() => navigate('/')}>Voltar</button>
-      <h1 className="overview-title">{orgaoPrincipal.orgao}</h1>
+      <h1 className="overview-title">{orgaoPrincipal?.orgao}</h1>
+
+      {/* Seletor de ano */}
+      <div className="year-selector">
+        <label htmlFor="ano">Selecione o ano:</label>
+        <select
+          id="ano"
+          value={ano}
+          onChange={(e) => {
+            setLoading(true); // Mostra o carregamento ao mudar o ano
+            setAno(e.target.value);
+          }}
+        >
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+        </select>
+      </div>
 
       <GraficoBudget
-        empenhado={orgaoPrincipal.empenhado}
-        liquidado={orgaoPrincipal.liquidado}
-        pago={orgaoPrincipal.pago}
+        empenhado={orgaoPrincipal?.empenhado}
+        liquidado={orgaoPrincipal?.liquidado}
+        pago={orgaoPrincipal?.pago}
       />
 
       <div className="legend-container">
@@ -100,5 +123,3 @@ export default function Overview() {
     </div>
   );
 }
-
-
