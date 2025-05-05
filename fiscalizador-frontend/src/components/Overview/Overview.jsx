@@ -79,8 +79,8 @@ export default function Overview() {
         <h3>O que significam esses valores?</h3>
         <p>
           <strong>Empenhado</strong>: Total reservado para o ministério.<br />
-          <strong>Liquidado</strong>: Valor efetivamente gasto.<br />
-          <strong>Pago</strong>: Valor já transferido para os fornecedores.<br />
+          <strong>Liquidado</strong>: Valor já transferido para os órgãos.<br />
+          <strong>Pago</strong>: Valor efetivamente gasto.<br />
           O restante é o que ainda está disponível para liquidar.
         </p>
       </div>
