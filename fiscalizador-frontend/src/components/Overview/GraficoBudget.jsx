@@ -6,15 +6,18 @@ function GraficoBudget(props) {
   const liquidado = props.liquidado;
   const pago = props.pago;
   
+
   let pagoMaiorQueLiquidado = false
   let liquidadoMaiorQueEmpenhado = false
   // Verificar inconsistências
-  if (liquidado > empenhado) {
+  if (liquidado >= empenhado) {
     liquidadoMaiorQueEmpenhado = true
+    console.log('Liquidado maior ou igual ao empenhado:', liquidado, empenhado);
 
   }
-  if (pago > liquidado){
+  if (pago >= liquidado){
     pagoMaiorQueLiquidado = true
+    console.log('Pago maior ou igual ao liquidado:', pago, liquidado);
   }
   
   const processarDados = (empenhado, liquidado, pago, liquidadoMaiorQueEmpenhado, pagoMaiorQueLiquidado) => {
