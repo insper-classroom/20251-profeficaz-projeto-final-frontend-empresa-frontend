@@ -33,16 +33,16 @@ function calcularPercentuais({ empenhado, liquidado, pago }) {
 }
 
 export default function Overview() {
-  const { SIAFE } = useParams();
+  const { SIAFI } = useParams();
   const navigate = useNavigate();
   const [orgaos, setOrgaos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [ano, setAno] = useState('2024'); // Estado para o ano selecionado
 
   useEffect(() => {
-    async function fetchOrgaos(SIAFE, ano) {
+    async function fetchOrgaos(SIAFI, ano) {
       try {
-        const response = await axios.get(`http://127.0.0.1:5000/tabelas_de_dados/${SIAFE}/${ano}`);
+        const response = await axios.get(`http://127.0.0.1:5000/tabelas_de_dados/${SIAFI}/${ano}`);
         setOrgaos(response.data.data);
       } catch (error) {
         console.error('Erro ao buscar órgãos:', error);
@@ -51,8 +51,8 @@ export default function Overview() {
       }
     }
 
-    fetchOrgaos(SIAFE, ano);
-  }, [SIAFE, ano]); // Adicione `ano` como dependência para recarregar os dados ao mudar o ano
+    fetchOrgaos(SIAFI, ano);
+  }, [SIAFI, ano]); // Adicione `ano` como dependência para recarregar os dados ao mudar o ano
 
   if (loading) return <p>Carregando...</p>;
 
