@@ -1,3 +1,6 @@
+/* src/index.css */
+
+/* Variáveis e estilos globais */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,6 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Links */
 a {
   font-weight: 500;
   color: #646cff;
@@ -22,19 +26,34 @@ a:hover {
   color: #535bf2;
 }
 
+/* Estilo básico do body */
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #121212;
 }
 
+/* Centraliza o conteúdo do app */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* opcional, para limitar largura */
+  padding: 20px;
+}
+
+/* Cabeçalhos */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
+/* Botões */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,6 +73,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Estilo para modo claro (opcional) */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
