@@ -83,9 +83,9 @@ export default function Overview() {
       </div>
 
       <GraficoBudget
-        empenhado={orgaoPrincipal?.empenhado}
-        liquidado={orgaoPrincipal?.liquidado}
-        pago={orgaoPrincipal?.pago}
+        empenhado={orgaoPrincipal?.empenhado/100}
+        liquidado={orgaoPrincipal?.liquidado/100}
+        pago={orgaoPrincipal?.pago/100}
       />
 
       <div className="legend-container">
@@ -113,10 +113,10 @@ export default function Overview() {
         {subOrgaos.map((orgao, index) => (
           <SubOrgaoCard
             key={index}
-            nome={orgao.nome}
-            empenhado={orgao.empenhado}
-            liquidado={orgao.liquidado}
-            pago={orgao.pago}
+            nome={orgao.orgao}
+            empenhado={orgao.empenhado/100}
+            liquidado={orgao.liquidado/100}
+            pago={orgao.pago/100}
           />
         ))}
       </div>

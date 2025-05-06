@@ -17,7 +17,7 @@ function SubOrgaoCard({ nome, empenhado, liquidado, pago }) {
     <div className="sub-orgao-card">
       <div className="info">
         <h4>{nome}</h4>
-        <p>Verba: {empenhado.toLocaleString()} | Liquidado: {liquidado.toLocaleString()} | Pago: {pago.toLocaleString()}</p>
+        <p>empenhado: {empenhado.toLocaleString()} | Liquidado: {liquidado.toLocaleString()} | Pago: {pago.toLocaleString()}</p>
       </div>
       <div className="mini-chart">
         <PieChart width={80} height={80}>
