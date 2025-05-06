@@ -1,13 +1,25 @@
 .overview-container {
-  padding: 40px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.overview-title {
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 28px;
+  justify-content: center;
+  width: 80%;
+  border-radius: 15px;
+  outline: 1px solid #555;
+  box-sizing: border-box;
+  overflow-x: hidden;     
+  background-color: #242424;
+}
+.overview-title {
+  font-family: 'Inria Serif', serif;
+  font-weight: 400;
+  align-self: flex-start;
+  margin-left: 5%;
+  width: 100%;
+  text-align: left;
+  font-size: 32px;
 }
 
 .legend-container {
@@ -55,4 +67,22 @@
   line-height: 1.5;
   font-size: 15px;
   color: #f9f9f9;
+}
+
+
+.year-selector {
+  align-self: flex-start;
+  margin-left: 5%;
+  margin-top: -15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #B1B1B1;
+}
+
+.voltar {
+  align-self: flex-start;
+  margin-left: 5%;
+  margin-top: 5%;
 }
