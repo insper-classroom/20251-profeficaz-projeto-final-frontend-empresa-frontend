@@ -1,13 +1,16 @@
 .home-container {
-  padding: 20px;
+  padding: 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
-  width: 100%;
+  width: 80%;
+  border-radius: 15px;
+  outline: 1px solid #555;
   box-sizing: border-box;
-  overflow-x: hidden;       /* esconde qualquer conteúdo que extravase horizontalmente */
+  overflow-x: hidden;     
+  background-color: #242424;
 }
 
 .home-container h1 {
@@ -29,4 +32,24 @@
 .titulo-botao:hover {
   color: #007bff;
   text-decoration: underline;
+}
+
+
+.titulo {
+  font-family: 'Inria Serif', serif;
+  font-weight: 400;
+  align-self: flex-start;
+  margin-left: 5%;
+  width: 100%;
+  text-align: left;
+  font-size: 42px;
+}
+.subtitulo {
+  align-self: flex-start;
+  margin-left: 5%;
+  margin-top: -20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #B1B1B1;
 }

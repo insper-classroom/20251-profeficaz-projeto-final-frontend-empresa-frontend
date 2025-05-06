@@ -38,7 +38,8 @@ export default function Home() {
   return (
     <div className="home-container">
       <button className="voltar-button" onClick={() => navigate('/noticias')}>VER NOTÍCIAS</button>
-      <h1>Ministérios</h1>
+      <h1 class='titulo'>Visão Geral</h1>
+      <h3 class='subtitulo'>Ministérios</h3>
       <div className="ministerios-container">
         {ministerios.map((m) => (
           <MinisterioCard key={m.SIAFI} ministerio={m} />
