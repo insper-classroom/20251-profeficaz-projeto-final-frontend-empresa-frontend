@@ -42,7 +42,7 @@ export default function Overview() {
   useEffect(() => {
     async function fetchOrgaos(SIAFI, ano) {
       try {
-        const response = await axios.get(`http://127.0.0.1:5000/tabelas_de_dados/${SIAFI}/${ano}`);
+        const response = await axios.get(`/api/tabelas_de_dados/${SIAFI}/${ano}`);
         setOrgaos(response.data.data);
       } catch (error) {
         console.error('Erro ao buscar órgãos:', error);
