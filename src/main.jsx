@@ -6,6 +6,7 @@ import App from './App.jsx'
 import Home from './components/Home/Home.jsx'
 import Overview from './components/Overview/Overview.jsx'
 import Noticias from './components/Noticias/Noticias.jsx'
+import NoticiasDetalhes from './components/Noticias/NoticiasDetalhes.jsx'
 import './index.css';
 
 const router = createBrowserRouter([
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
       {
         path: "noticias",
         element: <Noticias />
-      }
+      },
+      {
+        path: "noticias/:id",
+        element: <NoticiasDetalhes />
+      },
     ]
   }
 ]);

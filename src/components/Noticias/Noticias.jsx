@@ -61,12 +61,14 @@ const Noticias = () => {
             <div>
                 {noticias.length > 0 ? (
                     noticias.map((noticia) => (
-                        <div key={noticia.id} className="noticia-card">
+                        <button 
+                        key={noticia.id} 
+                        onClick={() => navigate(`/noticias/${noticia.id}`)}  // Fix here
+                        className="noticia-card"
+                        >
                             <h3>{noticia.titulo}</h3>
-                            <p><strong>Sinopse:</strong> {noticia.sinopse}</p>
-                            <p><strong>Detalhamento:</strong> {noticia.detalhamento}</p>
-                            <p><strong>Licitações:</strong> {noticia.licitacoes}</p>
-                        </div>
+                            <p className='paragrafo'>{noticia.sinopse}</p>
+                        </button>
                     ))
                 ) : (<p>Não há notícias cadastradas.</p>)}
             </div>

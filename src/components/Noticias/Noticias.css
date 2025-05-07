@@ -16,9 +16,7 @@
 .noticia-card {
   background-color: #282828;
   border-radius: 5px;
-  margin-left: 100%;
-  margin-right: 5%;
-  width: 80%;
+  width: 100%;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -32,11 +30,14 @@
   margin: 0 0 15px 0;
   color: #fff;
   font-size: 1.5em;
-}
+  padding: 3% 10% 0 10%;
+  
+
 
 .noticia-card p {
   margin: 10px 0;
   color: #ccc;
+  font-size: 20px;
 }
 
 .noticia-card strong {
@@ -44,6 +45,14 @@
 }
 
 .voltar-button {
+  background-color: #282828;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease-in-out;
   align-self: flex-start;
   margin-left: 5%;
   margin-top: 5%;
@@ -62,3 +71,10 @@
   text-align: left;
   font-size: 32px;
 }
+
+.paragrafo {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 1000px;
+}
+
