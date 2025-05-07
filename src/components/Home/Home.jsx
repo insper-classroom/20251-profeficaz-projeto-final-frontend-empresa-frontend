@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:5000/tabelas_de_dados`)
+      .get(`/api/tabelas_de_dados`)
       .then((res) => {
         console.log("Resposta da API:", res.data);
         setMinisterios(res.data.data);

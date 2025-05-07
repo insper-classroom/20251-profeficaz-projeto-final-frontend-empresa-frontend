@@ -12,7 +12,7 @@ const NoticiasDetalhes = () => {
   useEffect(() => {
       const fetchNoticias = async () => {
           try {
-              const response = await axios.get(`http://127.0.0.1:5000/noticias/${titulo}`);
+              const response = await axios.get(`/api/noticias/${titulo}`);
               setNoticia(response.data);
           } catch (error) {
               console.error("Erro ao buscar notícias:", error);
