@@ -42,7 +42,7 @@
   margin-left: 5%;
   width: 100%;
   text-align: left;
-  font-size: 42px;
+  font-size: 32px;
 }
 .subtitulo {
   align-self: flex-start;
@@ -50,10 +50,14 @@
   margin-top: -20px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 16px;
   color: #B1B1B1;
 }
 
-.year-selector {
-  
-}
+.voltar-button {
+  margin-top: 5%;
+  background-color: #151515;
+  align-self: flex-start;
+  margin-left: 5%;
+
+} 

@@ -8,11 +8,10 @@ function MinisterioCard({ ministerio }) {
   const { nome, SIAFI, } = ministerio;
 
   return (
-    <div className="ministerio-card">
-      <h3>{nome}</h3>
-      <p>{SIAFI}</p>
-      <button onClick={() => navigate(`/overview/${SIAFI}`)}>Ver detalhes</button>
-    </div>
+    <button className="ministerio-card" onClick={() => navigate(`/overview/${SIAFI}`)}>
+      <h3 className='nomeministerio'>{nome}</h3>
+      <p className='codsiafi'>COD. SIAFI: {SIAFI}</p>
+    </button>
   );
 }
 
