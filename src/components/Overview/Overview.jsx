@@ -61,26 +61,27 @@ export default function Overview() {
   const dadosGrafico = orgaoPrincipal ? calcularPercentuais(orgaoPrincipal) : [];
 
   return (
-    <div className="overview-container">
-      <button className='voltar'  onClick={() => navigate('/')}>Voltar</button>
-      <h1 className="overview-title">{orgaoPrincipal?.orgao}</h1>
+<div className="overview-container">
+  <div className="overview-header">
+    <button className="voltar" onClick={() => navigate('/')}>Voltar</button>
+    <h1 className="overview-title">{orgaoPrincipal?.orgao}</h1>
+    <div className="year-selector">
+      <label htmlFor="ano">Selecione o ano:</label>
+      <select
+        id="ano"
+        value={ano}
+        onChange={(e) => {
+          setLoading(true);
+          setAno(e.target.value);
+        }}
+      >
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+      </select>
+    </div>
+  </div>
 
-      {/* Seletor de ano */}
-      <div className="year-selector">
-        <label htmlFor="ano">Selecione o ano:</label>
-        <select
-          id="ano"
-          value={ano}
-          onChange={(e) => {
-            setLoading(true); // Mostra o carregamento ao mudar o ano
-            setAno(e.target.value);
-          }}
-        >
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
-        </select>
-      </div>
 
       <GraficoBudget
         empenhado={orgaoPrincipal?.empenhado/100}
