@@ -30,19 +30,20 @@ const NoticiasDetalhes = () => {
 
   return (
     <div className="noticias-container">
-    <button className="voltar-button" onClick={() => navigate('/noticias')}>Voltar</button>
-    {noticia ? (
-      <>
-        <h2 className="titulo">{noticia.titulo}</h2>
-        <p>{noticia.detalhamento}</p>
-        <p>{noticia.licitacoes}</p>
-      </>
-    ) : (
-      <p>Carregando...</p>
-    )}
-  </div>
+  <button className="voltar-button" onClick={() => navigate('/noticias')}>Voltar</button>
+  {noticia ? (
+    <>
+      <h2 className="titulo">{noticia.titulo}</h2>
+      <div className="caixa-noticia">
+        <p className="detalhamento">{noticia.detalhamento}</p>
+        <p className="licitacoes">{noticia.licitacoes}</p>
+      </div>
+    </>
+  ) : (
+    <p>Carregando...</p>
+  )}
+</div>
   );
-} 
-
+};
 
 export default NoticiasDetalhes

@@ -1,0 +1,12 @@
+.appbar {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #121212;
+    border-bottom: 1px solid #333;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  

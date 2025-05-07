@@ -1,24 +1,48 @@
 .noticias-container {
-  padding: 1px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  width: 80%;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 32px;
   border-radius: 15px;
-  outline: 1px solid #555;
-  box-sizing: border-box;
-  overflow-x: hidden;     
   background-color: #242424;
+  border: 1px solid #555;
+  box-sizing: border-box;
 }
 
+/* Botão Voltar */
+.voltar-button {
+  background-color: #282828;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.voltar-button:hover {
+  background-color: #383838;
+}
+
+/* Título principal */
+.titulo {
+  font-family: 'Inria Serif', serif;
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Cartão de notícia */
 .noticia-card {
   background-color: #282828;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
   width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .noticia-card:hover {
@@ -30,51 +54,47 @@
   margin: 0 0 15px 0;
   color: #fff;
   font-size: 1.5em;
-  padding: 3% 10% 0 10%;
-  
-
+  padding: 0 10%;
+}
 
 .noticia-card p {
   margin: 10px 0;
   color: #ccc;
-  font-size: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 10%;
 }
 
 .noticia-card strong {
   color: #fff;
 }
 
-.voltar-button {
-  background-color: #282828;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: background-color 0.2s ease-in-out;
-  align-self: flex-start;
-  margin-left: 5%;
-  margin-top: 5%;
-}
-
-.voltar-button:hover {
-  background-color: #383838;
-}
-
-.titulo {
-  font-family: 'Inria Serif', serif;
-  font-weight: 400;
-  align-self: flex-start;
-  margin-left: 5%;
-  width: 100%;
-  text-align: left;
-  font-size: 32px;
-}
-
+/* Parágrafos de sinopse na lista */
 .paragrafo {
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 1000px;
+  margin: 16px 0;
+  padding: 0 10%;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
 }
 
+/* Caixa para detalhamento e licitações */
+.caixa-noticia {
+  background-color: #1f1f1f;
+  padding: 24px 32px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  margin-top: 24px;
+  text-align: justify;
+}
+
+/* Texto detalhado */
+.detalhamento,
+.licitacoes {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #eaeaea;
+  margin-bottom: 16px;
+}
