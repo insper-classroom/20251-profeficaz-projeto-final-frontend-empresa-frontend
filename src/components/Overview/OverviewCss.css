@@ -8,6 +8,7 @@
   width: 80%;
   border-radius: 15px;
   outline: 1px solid #555;
+  margin-top: 180px;
   box-sizing: border-box;
   overflow-x: hidden;     
   background-color: #242424;
@@ -15,10 +16,8 @@
 .overview-title {
   font-family: 'Inria Serif', serif;
   font-weight: 400;
-  align-self: flex-start;
-  margin-left: 5%;
+  text-align: center;
   width: 100%;
-  text-align: left;
   font-size: 32px;
 }
 
@@ -82,9 +81,10 @@
 }
 
 .voltar {
+  margin-top: 5%;
+  background-color: #151515;
   align-self: flex-start;
   margin-left: 5%;
-  margin-top: 5%;
 }
 .year-selector select {
   margin-top: 5px;
@@ -123,3 +123,4 @@
   color: #ccc;
   margin-top: 4px;
 }
+

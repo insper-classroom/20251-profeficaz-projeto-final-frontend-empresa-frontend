@@ -11,6 +11,7 @@
   box-sizing: border-box;
   overflow-x: hidden;     
   background-color: #242424;
+  margin-top: 180px;
 }
 
 .home-container h1 {
@@ -38,8 +39,7 @@
 .titulo {
   font-family: 'Inria Serif', serif;
   font-weight: 400;
-  align-self: flex-start;
-  margin-left: 5%;
+  align-self: center;
   width: 100%;
   text-align: left;
   font-size: 32px;

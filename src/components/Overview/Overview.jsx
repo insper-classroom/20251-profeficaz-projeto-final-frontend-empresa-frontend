@@ -62,8 +62,8 @@ export default function Overview() {
 
   return (
 <div className="overview-container">
-  <div className="overview-header">
     <button className="voltar" onClick={() => navigate('/')}>Voltar</button>
+  <div className="overview-header">
     <h1 className="overview-title">{orgaoPrincipal?.orgao}</h1>
     <div className="year-selector">
       <label htmlFor="ano">Selecione o ano:</label>

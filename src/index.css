@@ -73,6 +73,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
+
 /* Estilo para modo claro (opcional) */
 @media (prefers-color-scheme: light) {
   :root {
