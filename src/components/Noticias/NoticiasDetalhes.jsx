@@ -6,13 +6,13 @@ import './Noticias.css'
 
 const NoticiasDetalhes = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { titulo } = useParams();
   const [noticia, setNoticia] = useState(null);
 
   useEffect(() => {
       const fetchNoticias = async () => {
           try {
-              const response = await axios.get(`http://127.0.0.1:5000/noticias/${id}`);
+              const response = await axios.get(`http://127.0.0.1:5000/noticias/${titulo}`);
               setNoticia(response.data);
           } catch (error) {
               console.error("Erro ao buscar notícias:", error);
@@ -20,12 +20,12 @@ const NoticiasDetalhes = () => {
           }
       };
       
-      if (id) {
+      if (titulo) {
     
         fetchNoticias();
       }
 
-  }, [id]);
+  }, [titulo]);
 
 
   return (

@@ -62,8 +62,8 @@ const Noticias = () => {
                 {noticias.length > 0 ? (
                     noticias.map((noticia) => (
                         <button 
-                        key={noticia._id} 
-                        onClick={() => navigate(`/noticias/${noticia._id}`)} 
+                        key={noticia.titulo} 
+                        onClick={() => navigate(`/noticias/${noticia.titulo}`)} 
                         className="noticia-card"
                         >
                             <h3>{noticia.titulo}</h3>
