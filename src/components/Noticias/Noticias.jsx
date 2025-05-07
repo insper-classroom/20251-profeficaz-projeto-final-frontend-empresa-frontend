@@ -56,8 +56,8 @@ const Noticias = () => {
 
     return (
         <div className="noticias-container">
-            <h2>Notícias</h2>
             <button className="voltar-button" onClick={() => navigate('/')}>Voltar</button>
+            <h2 className='titulo'>Notícias</h2>
             <div>
                 {noticias.length > 0 ? (
                     noticias.map((noticia) => (

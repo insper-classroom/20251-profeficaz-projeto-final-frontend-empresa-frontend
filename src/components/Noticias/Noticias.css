@@ -1,18 +1,26 @@
 .noticias-container {
+  padding: 1px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding: 20px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 80%;
+  border-radius: 15px;
+  outline: 1px solid #555;
+  box-sizing: border-box;
+  overflow-x: hidden;     
+  background-color: #242424;
 }
 
 .noticia-card {
   background-color: #282828;
-  padding: 20px;
   border-radius: 5px;
-  width: 100%;
-  color: white;
-  transition: transform 0.2s ease-in-out;
-  margin-bottom: 20px;
+  margin-left: 100%;
+  margin-right: 5%;
+  width: 80%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .noticia-card:hover {
@@ -36,16 +44,21 @@
 }
 
 .voltar-button {
-  background-color: #282828;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: background-color 0.2s ease-in-out;
+  align-self: flex-start;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
 .voltar-button:hover {
   background-color: #383838;
+}
+
+.titulo {
+  font-family: 'Inria Serif', serif;
+  font-weight: 400;
+  align-self: flex-start;
+  margin-left: 5%;
+  width: 100%;
+  text-align: left;
+  font-size: 32px;
 }
