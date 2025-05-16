@@ -17,7 +17,7 @@ const fetchMinisteriosData = async () => {
 // For now, assuming it might be imported or defined elsewhere if needed for prefetching logic in MinisterioCard.
 // If not, we might need to make Overview.jsx export it or define a similar one here.
 const fetchOrgaosData = async (SIAFI, ano) => {
-  const { data } = await axios.get(`http://127.0.0.1:5000/api/tabelas_de_dados/${SIAFI}/${ano}`);
+  const { data } = await axios.get(`/api/tabelas_de_dados/${SIAFI}/${ano}`); // Changed to relative path
   return data.data || [];
 };
 

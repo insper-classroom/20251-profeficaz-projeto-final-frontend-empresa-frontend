@@ -8,7 +8,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'; // Added useQu
 
 // API fetching function - must be defined outside the component or memoized
 const fetchOrgaosData = async (SIAFI, ano) => {
-  const { data } = await axios.get(`http://127.0.0.1:5000/api/tabelas_de_dados/${SIAFI}/${ano}`);
+  const { data } = await axios.get(`/api/tabelas_de_dados/${SIAFI}/${ano}`); // Changed to relative path
   return data.data || []; // Ensure it returns an array, even if data.data is null/undefined
 };
 
