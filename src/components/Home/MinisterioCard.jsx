@@ -1,18 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import './MinisterioCardCss.css';
-import { useNavigate } from 'react-router-dom';
 
-function MinisterioCard({ ministerio }) {
-  const navigate = useNavigate();
-
-  const { nome, SIAFI, } = ministerio;
+// Added onHoverPrefetch prop
+export default function MinisterioCard({ ministerio, onHoverPrefetch }) {
+  if (!ministerio) {
+    return <p>Dados do ministério indisponíveis.</p>;
+  }
 
   return (
-    <button className="ministerio-card" onClick={() => navigate(`/overview/${SIAFI}`)}>
-      <h3 className='nomeministerio'>{nome}</h3>
-      <p className='codsiafi'>COD. SIAFI: {SIAFI}</p>
-    </button>
+    <Link
+      to={`/overview/${ministerio.SIAFI}`}
+      className="ministerio-card-link"
+      onMouseEnter={onHoverPrefetch} // Call prefetch function on hover
+    >
+      <div className="card-container">
+        <h3 className="ministerio-nome">{ministerio.nome || ministerio.nome_orgao_resumido || ministerio.orgao || 'Nome Indisponível'}</h3>
+        <p className="ministerio-siafi">SIAFI: {ministerio.SIAFI}</p>
+      </div>
+    </Link>
   );
 }
-
-export default MinisterioCard;

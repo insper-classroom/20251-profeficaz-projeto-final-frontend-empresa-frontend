@@ -1,0 +1,140 @@
+.overview-container {
+  padding: 1px; /* Consider if this 1px padding is intentional or if a more substantial padding like '20px 30px' is desired */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This will center direct children like .overview-header, .legend-container, .explanation-box */
+  text-align: center; /* For inline content within children, if not overridden */
+  /* justify-content: center; This centers children along the main axis (vertically here). Usually fine. */
+  width: 80%;
+  border-radius: 15px;
+  outline: 1px solid #555;
+  margin: 180px auto 0 auto; /* Centers the container and adds top margin */
+  box-sizing: border-box;
+  overflow-x: hidden;     
+  background-color: #242424;
+}
+
+.overview-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns children of header (title, year-selector) to the left */
+  width: 100%; /* Takes full width of its parent (.overview-container) */
+  margin-top: 20px;
+  padding-left: 5%; /* Indents the content of the header */
+  box-sizing: border-box;
+}
+
+.overview-title {
+  font-family: 'Inria Serif', serif;
+  font-weight: 400;
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 10px; /* Espaço entre título e seletor */
+  /* text-align: start; /* Not strictly needed as align-items: flex-start on parent handles this */
+}
+
+.year-selector {
+  margin-top: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #B1B1B1;
+  /* align-self: flex-start; /* This would be needed if .overview-header wasn't align-items: flex-start */
+}
+
+.year-selector select {
+  margin-top: 5px;
+  padding: 8px 12px;
+  background-color: #323232;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.year-selector select:focus {
+  border-color: #00C49F;
+  box-shadow: 0 0 0 3px rgba(0, 196, 159, 0.4);
+}
+
+.voltar { /* Assuming this is a button to go back */
+  margin-top: 20px; /* Changed from 5% for consistency, adjust as needed */
+  background-color: #404040; /* Darker background */
+  color: white; /* Text color for the button */
+  padding: 10px 15px; /* Padding inside the button */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  align-self: flex-start; /* Aligns this button to the left within .overview-container */
+  margin-left: 5%; /* Specific margin from the left edge of .overview-container's content box */
+  /* If .overview-container has padding-left: 5%, this margin-left: 5% on .voltar will be additive.
+     You might want to remove margin-left here if the parent's padding is sufficient,
+     or adjust the parent's padding. */
+  font-size: 1rem; /* Example font size */
+}
+
+.legend-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around; /* Distributes legend items */
+  align-items: center; /* Vertically aligns items if they wrap to multiple lines and have different heights */
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%; /* Take full width to allow space-around to work effectively */
+  padding: 0 5%; /* Add some horizontal padding if items are too close to edges */
+  box-sizing: border-box;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-label {
+  font-weight: bold;
+  color: #E0E0E0; /* Lighter color for better contrast on dark background */
+}
+
+.legend-percent {
+  color: #ffff;
+}
+
+.explanation-box {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #404040;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 90%; /* To match the padding-left: 5% on the header, making it visually aligned */
+  max-width: 800px; /* Optional: to cap its width */
+  box-sizing: border-box;
+}
+
+.explanation-box h3 {
+  margin-top: 0; /* Remove default top margin from h3 if any */
+  margin-bottom: 10px;
+  text-align: start;
+  color: #fff; /* Ensure heading text is visible */
+}
+
+.explanation-box p {
+  line-height: 1.5;
+  font-size: 15px;
+  color: #f9f9f9;
+  text-align: start;
+  margin-bottom: 0; /* Remove default bottom margin from last p if any */
+}
+

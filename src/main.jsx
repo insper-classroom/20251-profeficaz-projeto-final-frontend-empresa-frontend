@@ -8,6 +8,17 @@ import Overview from './components/Overview/Overview.jsx'
 import Noticias from './components/Noticias/Noticias.jsx'
 import NoticiasDetalhes from './components/Noticias/NoticiasDetalhes.jsx'
 import './index.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+// Create a client
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      cacheTime: 30 * 60 * 1000, // 30 minutes
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
@@ -36,6 +47,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </StrictMode>
 )

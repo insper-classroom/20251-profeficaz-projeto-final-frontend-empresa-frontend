@@ -1,21 +1,22 @@
 .home-container {
-  padding: 1px;
+  /* padding: 1px; Replaced with more substantial padding */
+  padding: 20px 50px; /* Adds 20px top/bottom, 30px left/right padding */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
+  align-items: start; /* Default alignment for children */
+  text-align: center; /* For non-flex inline content, though flex properties are primary */
+  /* justify-content: center; This centers children vertically, which is fine */
   width: 80%;
   border-radius: 15px;
   outline: 1px solid #555;
   box-sizing: border-box;
-  overflow-x: hidden;     
   background-color: #242424;
-  margin-top: 180px;
+  margin: 180px auto 0 auto; /* Ensures the container itself is centered horizontally */
 }
 
 .home-container h1 {
   color: white;
+  text-align: center;
 }
 
 .titulo-botao {
@@ -39,14 +40,14 @@
 .titulo {
   font-family: 'Inria Serif', serif;
   font-weight: 400;
-  align-self: center;
+  align-self: center; /* Keeps title centered, overriding parent's align-items if it were flex-start */
   width: 100%;
-  text-align: left;
+  text-align: center;
   font-size: 32px;
 }
 .subtitulo {
-  align-self: flex-start;
-  margin-left: 5%;
+  align-self: center; /* Keeps subtitle centered */
+  text-align: start; /* Text within subtitle aligns start, but element is centered */
   margin-top: -20px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -54,10 +55,35 @@
   color: #B1B1B1;
 }
 
-.voltar-button {
-  margin-top: 5%;
-  background-color: #151515;
-  align-self: flex-start;
-  margin-left: 5%;
+.ministerios-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+  margin-top: 20px;
+  /* padding: 0%; Padding is now handled by .home-container for overall layout */
+  box-sizing: border-box;
+  width: 100%; /* Takes full width of its flex item space within .home-container */
+  max-width: 800px; /* But not more than 800px */
+  /* margin: 10 auto; This would center it if its width was less than 100% of available space */
+}
 
-} 
+.ministerio-item-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.noticias-button {
+  margin-top: 20px; /* Changed from % to a fixed value for consistency, adjust as needed */
+  background-color: #404040; /* Updated background color */
+  align-self: flex-start; /* Aligns button to the start (left) of the .home-container's content box */
+  /* margin-left: 10%; Removed, as parent padding now handles the offset */
+  /* margin-right: 5%; May not be needed if aligned left */
+  padding: 10px 15px; /* Added padding to the button itself for better appearance */
+  color: white; /* Assuming you want white text on a dark button */
+  border: none; /* Assuming no border is desired */
+  border-radius: 8px; /* Adjusted for a common button style */
+  cursor: pointer;
+  font-size: 1rem; /* Example font size */
+}

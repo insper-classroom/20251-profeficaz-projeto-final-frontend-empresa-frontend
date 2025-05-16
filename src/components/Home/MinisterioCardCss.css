@@ -10,12 +10,26 @@
   margin: 10 auto;
 }
 
-.ministerio-card {
-  background-color: #282828;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 100%;
+.ministerio-card-link {
+  background-color: #2b2b2b; 
+  border-radius: 8px; 
+  padding: 20px 15px; 
   box-sizing: border-box;
+  display: block; 
+  text-decoration: none; /* Remove default link underline */
+  color: white; /* Text color for visibility on dark background */
+  width: 100%; /* To take available width in its flex container, consistent with previous .ministerio-card style */
+  max-width: 100%;
+  text-align: left; /* Or 'center' if preferred for card content */
+  font-family: sans-serif; /* Added sans-serif font */
+  font-weight: 300; /* Added light font weight */
+}
+
+.ministerio-siafi {
+
+  opacity: 50%;
+  margin-top: 0;
+
 }
 
 .codsiafi {
@@ -23,8 +37,12 @@
   color: #555;
   margin-top: -2%;
   align-self: flex-start;
+  text-align: start;
 }
 
-.nomeministerio {
+.ministerio-nome {
   align-self: flex-start;
+  margin: 0;
+  text-align: start;
+  font-size: 24px;
 }

@@ -1,66 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import './Noticias.css';
+import { useQuery } from '@tanstack/react-query';
+
+// API fetching function for noticias
+const fetchNoticias = async () => {
+    const { data } = await axios.get("/api/noticias");
+    return data.data || []; // Ensure it returns an array
+};
 
 const Noticias = () => {
-    const [formData, setFormData] = useState({
-        titulo: "",
-        sinopse: "",
-        detalhamento: "",
-        licitacoes: "",
+    const navigate = useNavigate();
+
+    // Fetch noticias using useQuery
+    const { data: noticias, isLoading, isError, error } = useQuery({
+        queryKey: ['noticias'],
+        queryFn: fetchNoticias,
     });
 
-    const navigate = useNavigate();
-    const [noticias, setNoticias] = useState([]);
-
-    useEffect(() => {
-        const fetchNoticias = async () => {
-            try {
-                const response = await axios.get("/api/noticias");
-                setNoticias(response.data.data);
-            } catch (error) {
-                console.error("Erro ao buscar notícias:", error);
-                alert("Erro ao carregar notícias.");
-            }
-        };
-
-        fetchNoticias();
-    }, []);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post("/api/noticias", formData);
-            alert("Notícia enviada com sucesso!");
-            setFormData({
-                titulo: "",
-                sinopse: "",
-                detalhamento: "",
-                licitacoes: "",
-            });
-            setNoticias((prevNoticias) => [...prevNoticias, response.data.data]);
-        } catch (error) {
-            console.error("Erro ao enviar notícia:", error);
-            alert("Erro ao enviar notícia.");
-        }
-    };
+    if (isLoading) return <p>Carregando notícias...</p>;
+    if (isError) return <p>Erro ao carregar notícias: {error.message}</p>;
 
     return (
         <div className="noticias-container">
-            <button className="voltar-button" onClick={() => navigate('/')}>Voltar</button>
-            <h2 className='titulo'>Notícias</h2>
             <div>
-                {noticias.length > 0 ? (
-                    noticias.map((noticia) => (
+                <button className="voltar-button" onClick={() => navigate('/')}>VOLTAR</button>
+            </div>
+            <h1 className='titulo'>Notícias</h1>
+            <div className="noticias-list">
+                {(noticias || []).length > 0 ? (
+                    (noticias || []).map((noticia) => (
                         <button 
                             key={noticia.titulo} 
                             onClick={() => navigate(`/noticias/${noticia.titulo}`)} 
@@ -73,7 +43,7 @@ const Noticias = () => {
                 ) : (
                     <p>Não há notícias cadastradas.</p>
                 )}
-            </div>
+        </div>
         </div>
     );
 };

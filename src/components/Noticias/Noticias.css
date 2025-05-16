@@ -6,31 +6,30 @@
   background-color: #242424;
   border: 1px solid #555;
   box-sizing: border-box;
+  text-align: start;
   margin-top: 180px;
 }
 
 /* Botão Voltar */
 .voltar-button {
-  background-color: #282828;
+  background-color: #404040;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 20px;
   transition: background-color 0.2s ease-in-out;
+  margin-left: 0;
 }
 
 .voltar-button:hover {
-  background-color: #383838;
+  background-color: #404040;
 }
 
 /* Título principal */
 .titulo {
   font-family: 'Inria Serif', serif;
   font-weight: 400;
-  font-size: 32px;
-  text-align: center;
+  font-size: 52px;
+  text-align: start;
   margin-bottom: 24px;
 }
 
@@ -55,7 +54,9 @@
   margin: 0 0 15px 0;
   color: #fff;
   font-size: 1.5em;
-  padding: 0 10%;
+  padding: 24px 24px;
+  text-align: start;
+  
 }
 
 .noticia-card p {
@@ -63,7 +64,8 @@
   color: #ccc;
   font-size: 16px;
   line-height: 1.5;
-  padding: 0 10%;
+  padding: 0 12%;
+  text-align: start;
 }
 
 .noticia-card strong {
@@ -72,7 +74,7 @@
 
 /* Parágrafos de sinopse na lista */
 .paragrafo {
-  margin: 16px 0;
+  margin: px 0;
   padding: 0 10%;
   color: #ccc;
   font-size: 16px;
@@ -98,4 +100,10 @@
   line-height: 1.6;
   color: #eaeaea;
   margin-bottom: 16px;
+}
+
+.noticias-list {
+
+margin-top: 5%;
+
 }

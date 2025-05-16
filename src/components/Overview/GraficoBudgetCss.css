@@ -6,6 +6,63 @@
     z-index: 1;
   }
   
+  .grafico-wrapper-externo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Não use overflow: hidden aqui! */
+  }
+  
+  .grafico-circulo-fundo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #242424; /* Ou a cor do fundo desejada */
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .grafico-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* NÃO use overflow: hidden aqui! */
+    z-index: 1;
+  }
+  
+  .valor-central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .valor-total {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .valor-label {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  /* Os outros estilos permanecem iguais */
   .over-budget-alert {
     background-color: #dc3545;
     color: white;
@@ -26,39 +83,15 @@
     border: 1px solid #ffeeba;
     z-index: 3;
     position: relative;
+    align-items: start;
   }
   
   .inconsistencia-list {
     margin: 5px 0;
     padding-left: 20px;
+    align-items: start;
   }
   
-  .grafico-wrapper {
-    position: relative;
-    width: 300px;
-    height: 300px;
-  }
-  
-  .valor-central {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    z-index: 2;
-  }
-  
-  .valor-total {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .valor-label {
-    font-size: 12px;
-    color: #666;
+  .grafico-svg-circular {
+    background: transparent;
   }
