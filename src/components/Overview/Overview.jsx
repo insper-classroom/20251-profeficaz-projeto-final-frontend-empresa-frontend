@@ -154,6 +154,7 @@ export default function Overview() {
             empenhado={orgao.empenhado/100}
             liquidado={orgao.liquidado/100}
             pago={orgao.pago/100}
+            size
           />
         ))}
       </div>

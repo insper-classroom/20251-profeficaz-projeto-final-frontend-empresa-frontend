@@ -1,7 +1,7 @@
 .grafico-container {
     position: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: line;
     align-items: center;
     z-index: 1;
   }

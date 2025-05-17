@@ -1,13 +1,16 @@
 .sub-orgao-card {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
   background-color: #2c2c2c;
   padding: 16px 24px;
   border-radius: 20px;
   margin-bottom: 16px;
   color: white;
   box-sizing: border-box;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .explanation-box {
@@ -20,14 +23,15 @@
 
 
 .sub-orgao-card .info h4 {
-  margin: 0 0 6px 0;
+  margin: 0px 10px;
   font-size: 18px;
+  text-align: start;
 }
 
 .sub-orgao-card .info p {
-  margin: 0;
+  margin: 0px 10px;
   font-size: 14px;
-  
+  text-align: start;
 }
 
 .mini-chart {

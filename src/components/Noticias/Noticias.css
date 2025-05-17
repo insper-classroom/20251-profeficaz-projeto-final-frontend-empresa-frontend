@@ -69,49 +69,15 @@
 }
 
 .noticia-card h3 {
-  margin: 0 0 10px 0;
-  color: #fff;
-  font-size: 1.5em; /* Matches Home.css */
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  align-self: flex-start;
+  margin: 0;
   text-align: start;
+  font-size: 24px;
 }
 
 .noticia-card p {
-  font-family: 'Inter', sans-serif;
-  color: #B1B1B1;
-  font-size: 14px; /* Matches Home.css */
-  line-height: 1.5;
+  align-self: flex-start;
+  margin: 0;
   text-align: start;
-  margin-bottom: 0;
-}
-
-/* Parágrafos de sinopse na lista */
-.paragrafo {
-  margin: 10px 0; /* Corrected typo and added value */
-  padding: 0 10%; /* Kept for specific justified text blocks if needed */
-  color: #ccc;
-  font-size: 16px;
-  line-height: 1.6;
-  text-align: justify;
-}
-
-/* Caixa para detalhamento e licitações (Kept as is, assuming specific use) */
-.caixa-noticia {
-  background-color: #1f1f1f;
-  padding: 24px 32px;
-  border-radius: 10px;
-  border: 1px solid #333;
-  margin-top: 24px;
-  text-align: justify;
-}
-
-/* Texto detalhado (Kept as is) */
-.detalhamento,
-.licitacoes {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #eaeaea;
-  margin-bottom: 16px;
+  font-size: 24px;
 }
