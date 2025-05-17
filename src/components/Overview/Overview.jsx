@@ -146,7 +146,7 @@ export default function Overview() {
       </div>
 
       <h2 style={{ marginTop: '40px' }}>Órgãos subordinados</h2>
-      <div>
+      <div className="sub-orgao-container">
         {subOrgaos.map((orgao, index) => (
           <SubOrgaoCard
             key={index}

@@ -1,48 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom';
-import './Noticias.css'
+import './NoticiasDetalhes.css'
 
+
+const fetchNoticiaDetalhes = async (titulo) => {
+    const { data } = await axios.get(`/api/noticias/${titulo}`);
+    return data;
+};
 
 const NoticiasDetalhes = () => {
   const navigate = useNavigate();
   const { titulo } = useParams();
-  const [noticia, setNoticia] = useState(null);
 
-  useEffect(() => {
-      const fetchNoticias = async () => {
-          try {
-              const response = await axios.get(`/api/noticias/${titulo}`);
-              setNoticia(response.data);
-          } catch (error) {
-              console.error("Erro ao buscar notícias:", error);
-              alert("Erro ao carregar notícias.");
-          }
-      };
-      
-      if (titulo) {
-    
-        fetchNoticias();
-      }
+  // Fetch noticia details using React Query
+  const { data: noticia, isLoading, isError } = useQuery({
+    queryKey: ['noticia', titulo],
+    queryFn: () => fetchNoticiaDetalhes(titulo),
+    enabled: !!titulo, // Only fetch when titulo is available
+  });
 
-  }, [titulo]);
-
+  if (isLoading) return <p>Carregando...</p>;
+  if (isError) return <p>Erro ao carregar notícias.</p>;
 
   return (
-    <div className="noticias-container">
-  <button className="voltar-button" onClick={() => navigate('/noticias')}>Voltar</button>
-  {noticia ? (
-    <>
-      <h2 className="titulo">{noticia.titulo}</h2>
-      <div className="caixa-noticia">
-        <p className="detalhamento">{noticia.detalhamento}</p>
-        <p className="licitacoes">{noticia.licitacoes}</p>
-      </div>
-    </>
-  ) : (
-    <p>Carregando...</p>
-  )}
-</div>
+    <div className="noticias-detalhes-container">
+      <button className="noticias-detalhes-voltar-button" onClick={() => navigate('/noticias')}>
+        VOLTAR
+      </button>
+      {noticia ? (
+        <>
+          <h2 className="noticias-detalhes-titulo">{noticia.titulo}</h2>
+          <div className="noticias-detalhes-caixa-noticia">
+            <p className="noticias-detalhes-detalhamento">{noticia.detalhamento}</p>
+            <p className="noticias-detalhes-licitacoes">{noticia.licitacoes}</p>
+          </div>
+        </>
+      ) : (
+        <p>Carregando...</p>
+      )}
+    </div>
   );
 };
 

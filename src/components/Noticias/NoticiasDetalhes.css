@@ -1,0 +1,109 @@
+.noticias-detalhes-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 32px;
+  border-radius: 15px;
+  background-color: #242424;
+  border: 1px solid #555;
+  box-sizing: border-box;
+  text-align: start;
+  margin-top: 180px;
+}
+
+/* Botão Voltar */
+.noticias-detalhes-voltar-button {
+  background-color: #404040;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-left: 0;
+}
+
+.noticias-detalhes-voltar-button:hover {
+  background-color: #505050;
+}
+
+/* Título principal */
+.noticias-detalhes-titulo {
+  font-family: 'Inria Serif', serif;
+  font-weight: 400;
+  font-size: 52px;
+  text-align: start;
+  margin: 24px 24px;
+}
+
+/* Cartão de notícia */
+.noticia-card {
+  background-color: #282828;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.noticia-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.noticia-card h3 {
+  margin: 0 0 15px 0;
+  color: #fff;
+  font-size: 1.5em;
+  padding: 24px 24px;
+  text-align: start;
+  
+}
+
+.noticia-card p {
+  margin: 10px 0;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 12%;
+  text-align: start;
+}
+
+.noticia-card strong {
+  color: #fff;
+}
+
+/* Parágrafos de sinopse na lista */
+.paragrafo {
+  margin: px 0;
+  padding: 0 10%;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Caixa para detalhamento e licitações */
+.noticias-detalhes-caixa-noticia {
+  background-color: #1f1f1f;
+  padding: 24px 32px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  margin-top: 24px;
+  text-align: justify;
+}
+
+/* Texto detalhado */
+.noticias-detalhes-detalhamento,
+.noticias-detalhes-licitacoes {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #eaeaea;
+  margin-bottom: 16px;
+}
+
+.noticias-list {
+
+margin-top: 5%;
+
+}

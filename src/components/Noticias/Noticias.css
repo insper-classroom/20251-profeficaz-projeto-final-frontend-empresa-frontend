@@ -1,13 +1,15 @@
+/* Inspired by Home.css */
 .noticias-container {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 32px;
-  border-radius: 15px;
-  background-color: #242424;
-  border: 1px solid #555;
+  width: 80%;
+  padding: 20px 50px; /* Matches Home.css */
+  border-radius: 15px; /* Ensures rounded corners */
+  background-color: #242424; /* Matches Home.css */
+  outline: 1px solid #555; /* Matches Home.css */
   box-sizing: border-box;
-  text-align: start;
-  margin-top: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all children */
+  text-align: center; /* Center text within children */
 }
 
 /* Botão Voltar */
@@ -15,31 +17,47 @@
   background-color: #404040;
   color: white;
   border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  margin-left: 0;
+  align-self: flex-start; /* Align to the left */
+  margin-bottom: 20px;
 }
 
 .voltar-button:hover {
-  background-color: #404040;
+  background-color: #505050;
 }
 
 /* Título principal */
 .titulo {
   font-family: 'Inria Serif', serif;
   font-weight: 400;
-  font-size: 52px;
+  font-size: 52px; /* Matches Home.css */
+  margin-bottom: 40px;
+  color: #ffffff;
+  width: 100%;
   text-align: center;
-  margin-bottom: 24px;
+}
+
+/* Lista de notícias */
+.noticias-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between cards */
+  width: 100%;
+  max-width: 800px; /* Matches Home.css */
+  align-items: center; /* Center the list */
 }
 
 /* Cartão de notícia */
 .noticia-card {
-  background-color: #282828;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
+  background-color: #2C2C2C;
+  border: 1px solid #444;
+  border-radius: 8px; /* Matches Home.css */
+  padding: 20px 15px; /* Matches Home.css */
   width: 100%;
+  max-width: 800px; /* Ensure consistent width with Home page cards */
   box-sizing: border-box;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -51,38 +69,34 @@
 }
 
 .noticia-card h3 {
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
   color: #fff;
-  font-size: 1.5em;
-  padding: 24px 24px;
+  font-size: 1.5em; /* Matches Home.css */
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
   text-align: start;
-  
 }
 
 .noticia-card p {
-  margin: 10px 0;
-  color: #ccc;
-  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #B1B1B1;
+  font-size: 14px; /* Matches Home.css */
   line-height: 1.5;
-  padding: 0 12%;
   text-align: start;
-}
-
-.noticia-card strong {
-  color: #fff;
+  margin-bottom: 0;
 }
 
 /* Parágrafos de sinopse na lista */
 .paragrafo {
-  margin: px 0;
-  padding: 0 10%;
+  margin: 10px 0; /* Corrected typo and added value */
+  padding: 0 10%; /* Kept for specific justified text blocks if needed */
   color: #ccc;
   font-size: 16px;
   line-height: 1.6;
   text-align: justify;
 }
 
-/* Caixa para detalhamento e licitações */
+/* Caixa para detalhamento e licitações (Kept as is, assuming specific use) */
 .caixa-noticia {
   background-color: #1f1f1f;
   padding: 24px 32px;
@@ -92,7 +106,7 @@
   text-align: justify;
 }
 
-/* Texto detalhado */
+/* Texto detalhado (Kept as is) */
 .detalhamento,
 .licitacoes {
   font-family: 'Inter', sans-serif;
@@ -100,10 +114,4 @@
   line-height: 1.6;
   color: #eaeaea;
   margin-bottom: 16px;
-}
-
-.noticias-list {
-
-margin-top: 5%;
-
 }

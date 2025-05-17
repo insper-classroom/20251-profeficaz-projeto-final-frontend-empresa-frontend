@@ -138,3 +138,8 @@
   margin-bottom: 0; /* Remove default bottom margin from last p if any */
 }
 
+.sub-orgao-container {
+align-items: start;
+
+}
+
